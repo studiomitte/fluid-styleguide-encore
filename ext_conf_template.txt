@@ -1,0 +1,6 @@
+# cat=basic; type=string; label=Path
+path = EXT:site-package/Resources/Public/Frontend/entrypoints.json
+
+# cat=basic; type=string; label=Entryname
+entryName = app
+

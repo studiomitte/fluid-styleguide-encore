@@ -1,0 +1,31 @@
+{
+    "name": "studiomitte/fluid-styleguide-encore",
+    "description": "Make typo3_encore work with fluid_styleguide",
+    "license": "GPL-2.0-or-later",
+    "type": "typo3-cms-extension",
+    "authors": [
+        {
+            "name": "Georg Ringer",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^10 || ^11",
+        "ssch/typo3-encore": "^4",
+        "sitegeist/fluid-styleguide": "^2"
+    },
+    "autoload": {
+        "psr-4": {
+            "StudioMitte\\FluidStyleGuideEncore\\": "Classes"
+        }
+    },
+    "replace": {
+        "studiomitte/fluid-styleguide-encore": "self.version",
+        "typo3-ter/fluid-styleguide-encore": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "fluid_styleguide_encore"
+        }
+    }
+}

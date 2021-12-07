@@ -1,0 +1,14 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    StudioMitte\FluidStyleGuideEncore\:
+        resource: '../Classes/*'
+
+    StudioMitte\FluidStyleGuideEncore\EventListener\PostProcessComponentViewEventListener:
+        tags:
+            - name: event.listener
+              identifier: 'fluid-styleguide-encore'
+              event: Sitegeist\FluidStyleguide\Event\PostProcessComponentViewEvent
