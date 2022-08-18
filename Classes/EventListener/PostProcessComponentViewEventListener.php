@@ -26,10 +26,10 @@ class PostProcessComponentViewEventListener
         $cacheFactory = GeneralUtility::makeInstance(CacheFactory::class);
         $entryPointLookup = GeneralUtility::makeInstance(EntrypointLookup::class, $configuration['path'] ?? '', '_styleguide', true, $jsonDecoder, $io, $cacheFactory);
 
-        foreach ($entryPointLookup->getCssFiles($configuration['entryName'] ?? '') as $css) {
+        foreach ($entryPointLookup->getCssFiles($configuration['entryName'] ?? 'app') as $css) {
             $event->addHeaderData(' <link rel="stylesheet" href="' . htmlspecialchars($css) . '" />');
         }
-        foreach ($entryPointLookup->getJavaScriptFiles('app') as $js) {
+        foreach ($entryPointLookup->getJavaScriptFiles($configuration['entryName'] ?? 'app') as $js) {
             $event->addHeaderData('<script src="' . htmlspecialchars($js) . '"></script>');
         }
     }
