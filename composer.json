@@ -10,18 +10,14 @@
         }
     ],
     "require": {
-        "typo3/cms-core": "^10 || ^11",
-        "ssch/typo3-encore": "^4",
+        "typo3/cms-core": "^12",
+        "ssch/typo3-encore": "^5",
         "sitegeist/fluid-styleguide": "^2"
     },
     "autoload": {
         "psr-4": {
             "StudioMitte\\FluidStyleGuideEncore\\": "Classes"
         }
-    },
-    "replace": {
-        "studiomitte/fluid-styleguide-encore": "self.version",
-        "typo3-ter/fluid-styleguide-encore": "self.version"
     },
     "extra": {
         "typo3/cms": {

@@ -6,7 +6,6 @@ namespace StudioMitte\FluidStyleguideEncore\EventListener;
 
 use Sitegeist\FluidStyleguide\Event\PostProcessComponentViewEvent;
 use Ssch\Typo3Encore\Asset\EntrypointLookup;
-use Ssch\Typo3Encore\Integration\CacheFactory;
 use Ssch\Typo3Encore\Integration\Filesystem;
 use Ssch\Typo3Encore\Integration\JsonDecoder;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
@@ -22,9 +21,7 @@ class PostProcessComponentViewEventListener
         }
         $jsonDecoder = new JsonDecoder();
         $io = new Filesystem();
-
-        $cacheFactory = GeneralUtility::makeInstance(CacheFactory::class);
-        $entryPointLookup = GeneralUtility::makeInstance(EntrypointLookup::class, $configuration['path'] ?? '', '_styleguide', true, $jsonDecoder, $io, $cacheFactory);
+        $entryPointLookup = GeneralUtility::makeInstance(EntrypointLookup::class, $configuration['path'] ?? '', true, $jsonDecoder, $io);
 
         foreach ($entryPointLookup->getCssFiles($configuration['entryName'] ?? 'app') as $css) {
             $event->addHeaderData(' <link rel="stylesheet" href="' . htmlspecialchars($css) . '" />');
